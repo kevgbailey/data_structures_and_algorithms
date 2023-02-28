@@ -61,10 +61,13 @@ class SList:
         if check.next is None:
             prev.next = None
             return
-        if check.value is value:
-            while check.next.value is value:
+        if check.value == value:
+            while check.next !=  None or check.next.value == value:
                 check = check.next
         if check is None:
+            return
+        if check.next is None:
+            prev.next = None
             return
         else:
             prev.next = check.next
