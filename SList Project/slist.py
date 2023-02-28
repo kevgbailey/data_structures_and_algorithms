@@ -61,13 +61,10 @@ class SList:
         if check.next is None:
             prev.next = None
             return
-        if check.value == value:
-            while check.next !=  None or check.next.value == value:
+        if check.value is value:
+            while check.next.value is value:
                 check = check.next
         if check is None:
-            return
-        if check.next is None:
-            prev.next = None
             return
         else:
             prev.next = check.next
@@ -111,4 +108,6 @@ class SList:
             check = check.next
             len_counter += 1
         return len_counter
+
+
 
