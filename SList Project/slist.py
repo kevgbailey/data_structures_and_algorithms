@@ -32,7 +32,7 @@ class SList:
         current = self._head
         while current is not None:
             if current.value == value:
-                return value
+                return current.value
             current = current.next
         return None
 
@@ -44,10 +44,11 @@ class SList:
             prev = check
             check = check.next
         if check is None:
-            return
+            return self
         else:
             prev.next = check.next
             check.next = None
+            self._size -= 1
 
     '''Remove all instances of value'''
     def remove_all(self, value):
@@ -58,17 +59,31 @@ class SList:
             prev = check
             check = check.next
         #if it hits the desired value, run through it until it hits the next value
-        if check.next is None:
+        if check == None:
+            return self
+        if check.next == None:
             prev.next = None
-            return
-        if check.value is value:
-            while check.next.value is value:
-                check = check.next
+            return self
+        if check.value == value:
+            while check.next != None:
+                if check.next == None:
+                    prev.next = None
+                    return self
+                if check.next.value != value:
+                    if prev == None:
+                        self._head = check.next
+                        return self
+                    else:
+                        prev.next = check.next
+                        return self
+                if check.next.value == value:
+                    check = check.next
         if check is None:
-            return
+            return self
         else:
             prev.next = check.next
             check.next = None
+            return self
 
 
 

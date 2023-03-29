@@ -5,8 +5,8 @@ def calculate_gpa(courseList):
     sumGrades = 0
     credits = 0
     for course in courseList:
-        sumGrades += course.grade * course.credit_hr
-        credits += course.credit_hr
+        sumGrades += course.course_grade * course.credit_hour
+        credits += course.credit_hour
     if credits == 0:
         return 0
     return sumGrades / credits
@@ -16,7 +16,7 @@ def is_sorted(lyst):
         if lyst[i] > lyst[i + 1]:
             return False
     return True
-    
+
 def main():
     pass
   
@@ -24,6 +24,9 @@ if __name__ == "__main__":
     main()
 
 test_slist = SList()
+
+print(test_slist.__len__())
+
 test_slist.insert(4)
 test_slist.insert(1)
 test_slist.insert(3)
@@ -31,13 +34,20 @@ test_slist.insert(2)
 test_slist.insert(1)
 test_slist.insert(3)
 test_slist.insert(12)
+test_slist.insert(12)
 test_slist.insert(1)
 test_slist.insert(7)
 test_slist.insert(8)
-test_slist.insert(12)
+test_slist.insert(1)
 test_slist.insert(3)
 print(test_slist)
-test_slist.remove_all(12)
+
+print(test_slist.remove_all(1).__len__())
+
+
+
+
+
 # test_slist.remove(3)
 # print(test_slist)
 # print(test_slist.__len__())
@@ -55,5 +65,3 @@ test_slist.remove_all(12)
 # test_slist.insert(Course(5200, "Super Senior Capstone", 6, 4.0))
 # test_slist.insert(Course(3207, "React Web Development", 3, 3.7))
 
-
-print(is_sorted(test_slist))
